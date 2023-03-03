@@ -29,6 +29,6 @@ A proposta desse projeto é criar uma japamala (o rosério budista) que consiste
 - Criar slider para não exibir o contador.
 
 ### Gráficos
-- Definir posteriormente.
+- Serão feitos usando o Chakra UI, como estudo da ferramenta.
 
 
