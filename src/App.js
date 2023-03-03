@@ -1,6 +1,7 @@
-import React, { useState }  from 'react';
+import React, { useState}  from 'react';
 import Bead from './Button';
 import {
+  Center,
   ChakraProvider,
   Box,
   theme,
@@ -10,7 +11,7 @@ import {
 function App() {
   const [count, setCount] = useState(0);
 
-  function handleClick() {
+  function countBead() {
     if (count < 108) {
       setCount(count + 1);
     }
@@ -19,12 +20,11 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
-        Hi! How are you?
+        Count: {count}
       </Box>
-      <p>Count: {count}</p>
-      <Box textAlign="center" fontSize="xl">
-        <Bead onClick={handleClick} />
-      </Box>
+      <Center>
+        <Bead onClick={countBead} />
+      </Center>
     </ChakraProvider>
   );
 }
