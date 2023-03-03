@@ -1,29 +1,30 @@
-import React, { useState}  from 'react';
+import React, { useState } from 'react';
 import Bead from './Button';
-import {
-  Center,
-  ChakraProvider,
-  Box,
-  theme,
-} from '@chakra-ui/react';
-
+import OnOff from './OnOff';
+import { Center, ChakraProvider, Box, theme } from '@chakra-ui/react';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [showCounter, setShowCounter] = useState(true);
 
   function countBead() {
     if (count < 108) {
       setCount(count + 1);
     }
-  };
+  }
 
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        Count: {count}
-      </Box>
+      {showCounter && (
+        <Box textAlign="center" fontSize="xl">
+          {count}
+        </Box>
+      )}
       <Center>
         <Bead onClick={countBead} />
+      </Center>
+      <Center>
+        <OnOff onToogle={() => setShowCounter(!showCounter)} />
       </Center>
     </ChakraProvider>
   );

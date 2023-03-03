@@ -19,9 +19,9 @@ A proposta desse projeto é criar uma japamala (o rosério budista) que consiste
 ## Roadmap
 
 - A ideia partiu de exercícios "99 bottles" usando loop e "pomodoro" usando o setState.
-- Criar botão para clicar a cada recitação aumentando o contador e utilizar o mesmo no backspace.
+- Criar botão para clicar a cada recitação aumentando o contador e utilizar o mesmo no space e enter.  // Feito em 03/03
 - Criar o contador exibível podendo desabilita-lo.
-- Limitar a 108.
+- Limitar a 108. // Feito em 03/03
 - Criar o timer para cada recitação.
 - Criar o x2(>>) e x3(>>>).
 - Criar os sons de início, click e final.
