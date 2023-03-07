@@ -1,13 +1,21 @@
 import { Switch } from '@chakra-ui/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 function OnOff(props) {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleToggle = () => {
+    setIsChecked(!isChecked);
+    props.onToggle();
+    document.getElementById('onOff').blur();
+  };
+
   return (
     <Switch
       id="onOff"
       size="lg"
-      onChange={props.onToogle}
-      onClick={document.getElementById('onOff').blur()}
+      isChecked={isChecked}
+      onChange={handleToggle}
     />
   );
 }

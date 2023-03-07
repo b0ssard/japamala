@@ -24,7 +24,7 @@ function App() {
         <Bead onClick={countBead} />
       </Center>
       <Center>
-        <OnOff onToogle={() => setShowCounter(!showCounter)} />
+        <OnOff onToggle={() => setShowCounter(!showCounter)} />
       </Center>
     </ChakraProvider>
   );
