@@ -1,7 +1,7 @@
 
 # JAPAMALA
 
-A proposta desse projeto é criar uma japamala (o rosério budista) que consiste em orientar o meditante a não se perder nas contagens do mantra, o repetindo 108 vezes.
+A proposta desse projeto é criar uma japamala (o rosário budista) que consiste em orientar o meditante a não se perder nas contagens do mantra, o repetindo 108 vezes.
 
 
 
@@ -22,13 +22,25 @@ A proposta desse projeto é criar uma japamala (o rosério budista) que consiste
 - Criar botão para clicar a cada recitação aumentando o contador e utilizar o mesmo nas teclas space e enter.  // Feito em 03/03
 - Criar o contador exibível podendo desabilita-lo. // Feito em 03/03
 - Limitar a 108. // Feito em 03/03
-- Criar o modo automático com timer para cada recitação.
-- Criar o x2(>>) e x3(>>>).
+- Criar o modo automático com timer para cada recitação. (Ver ### Modo Automático)
 - Criar os sons de início, click e final.
 - Criar slider para desabilitar sons individualmente.
 - Criar slider para não exibir o contador. // Feito em 03/03
 
+### Modo automático
+- Timer
+- Timer ajustável.
+- Input de timer ajustável com padrão ajustado para 5 segs.
+- Pause e stop.
+- Criar o x2(>>) e x3(>>>)
+- Substituir o botão de Bead pelo de Stop, Pause, x2 e x3.
+
+
 ### Gráficos
 - Serão feitos usando o Chakra UI, como estudo da ferramenta.
+- Paleta: laranja, vermelho e grená.
+- Instruções.
+- Navbar (Instruções, link para o CEBB).
+- Footer (Contatos)
 
 

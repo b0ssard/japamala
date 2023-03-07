@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Bead from './Button';
 import OnOff from './OnOff';
+import Timer from './Timer';
 import { Center, ChakraProvider, Box, theme } from '@chakra-ui/react';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <Center>
         <OnOff onToggle={() => setShowCounter(!showCounter)} />
       </Center>
+    <Timer />
     </ChakraProvider>
   );
 }
