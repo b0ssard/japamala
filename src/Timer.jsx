@@ -24,7 +24,6 @@ function Timer() {
     if (count >= 108) {
       clearInterval(intervalId);
       setIntervalId(null);
-      setCount(0);
     }
   }, [count]);
 
@@ -48,6 +47,11 @@ function Timer() {
     setIntervalId(null);
   };
 
+   const regularSpeed = () => {
+     setSpeed(1);
+     setTimerDelay(4000);
+   };
+
   const doubleSpeed = () => {
     setSpeed(2);
     setTimerDelay(4000 / 2 / speed);
@@ -56,11 +60,6 @@ function Timer() {
   const tripleSpeed = () => {
     setSpeed(3);
     setTimerDelay(4000 / 3 / speed);
-  };
-
-  const regularSpeed = () => {
-    setSpeed(1);
-    setTimerDelay(4000);
   };
 
   return (
