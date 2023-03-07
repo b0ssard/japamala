@@ -28,12 +28,12 @@ A proposta desse projeto é criar uma japamala (o rosário budista) que consiste
 - Criar slider para não exibir o contador. // Feito em 03/03
 
 ### Modo automático
-- Timer
-- Timer ajustável.
-- Input de timer ajustável com padrão ajustado para 5 segs.
-- Pause e stop.
-- Criar o x2(>>) e x3(>>>)
-- Substituir o botão de Bead pelo de Stop, Pause, x2 e x3.
+- Timer.  // Feito em 07/03
+- Timer ajustável.  // Feito em 07/03
+- Input de timer ajustável com padrão ajustado para 4 segs.
+- Pause e stop.  // Feito em 07/03
+- Criar o x2(>>) e x3(>>>).  // Feito em 07/03
+- Substituir o botão de Bead pelo de Stop, Pause, x2 e x3.  // Feito em 07/03
 
 
 ### Gráficos
