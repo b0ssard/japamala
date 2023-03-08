@@ -4,7 +4,7 @@ function Timer() {
   const [count, setCount] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
   const [speed, setSpeed] = useState(1);
-  const [timerDelay, setTimerDelay] = useState(4000);
+  const [timerDelay, setTimerDelay] = useState(4);
 
   useEffect(() => {
     return () => clearInterval(intervalId);
@@ -15,7 +15,7 @@ function Timer() {
       clearInterval(intervalId);
       const id = setInterval(() => {
         setCount(count => count + 1);
-      }, timerDelay);
+      }, timerDelay * 1000);
       setIntervalId(id);
     }
   }, [timerDelay]);
@@ -31,7 +31,7 @@ function Timer() {
     if (!intervalId) {
       const id = setInterval(() => {
         setCount(count => count + 1);
-      }, timerDelay);
+      }, timerDelay * 1000);
       setIntervalId(id);
     }
   };
@@ -47,25 +47,41 @@ function Timer() {
     setIntervalId(null);
   };
 
-   const regularSpeed = () => {
-     setSpeed(1);
-     setTimerDelay(4000);
-   };
+  const regularSpeed = () => {
+    setSpeed(1);
+    setTimerDelay(4);
+  };
 
   const doubleSpeed = () => {
     setSpeed(2);
-    setTimerDelay(4000 / 2 / speed);
+    setTimerDelay(4 / 2 / speed);
   };
 
   const tripleSpeed = () => {
     setSpeed(3);
-    setTimerDelay(4000 / 3 / speed);
+    setTimerDelay(4 / 3 / speed);
+  };
+
+  const handleTimerDelayChange = event => {
+    const newTimerDelay = Number(event.target.value);
+    setTimerDelay(newTimerDelay);
   };
 
   return (
     <div>
       <p>Count: {count}</p>
-      <p>Speed: {speed} </p>
+      <p>Speed: {speed}</p>
+      <div>
+        <label htmlFor="timer-delay-input">Timer Delay (seconds):</label>
+        <input
+          id="timer-delay-input"
+          type="number"
+          min="1"
+          max="10"
+          value={timerDelay}
+          onChange={handleTimerDelayChange}
+        />
+      </div>
       <button onClick={startTimer}>Start</button>
       <button onClick={pauseTimer}>Pause</button>
       <button onClick={resetTimer}>Reset</button>
