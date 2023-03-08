@@ -36,6 +36,7 @@ A proposta desse projeto é criar uma japamala (o rosário budista) que consiste
 - Input de timer ajustável com padrão ajustado para 4 segs.  // Feito em 08/03 (CANCELADO)
 - Pause e stop.  // Feito em 07/03
 - Criar o x2(>>) e x3(>>>).  // Feito em 07/03
+- Criar o /2(<<) e /3 (<<<).  // Feito em 08/03
 - Substituir o botão de Bead pelo de Stop, Pause, x2 e x3.  // Feito em 07/03
 
 
