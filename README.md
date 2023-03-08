@@ -22,15 +22,18 @@ A proposta desse projeto é criar uma japamala (o rosário budista) que consiste
 - Criar botão para clicar a cada recitação aumentando o contador e utilizar o mesmo nas teclas space e enter.  // Feito em 03/03
 - Criar o contador exibível podendo desabilita-lo. // Feito em 03/03
 - Limitar a 108. // Feito em 03/03
-- Criar o modo automático com timer para cada recitação. (Ver ### Modo Automático)
+- Criar o modo automático com timer para cada recitação. (Ver ### Modo Automático)   // Feito em 08/03
+- Integrar modo automático e manual.
+- Possibilitar a alternância dos dois modos.
 - Criar os sons de início, click e final.
 - Criar slider para desabilitar sons individualmente.
 - Criar slider para não exibir o contador. // Feito em 03/03
+- Manual de instruções.
 
 ### Modo automático
 - Timer.  // Feito em 07/03
 - Timer ajustável.  // Feito em 07/03
-- Input de timer ajustável com padrão ajustado para 4 segs.
+- Input de timer ajustável com padrão ajustado para 4 segs.  // Feito em 08/03 (CANCELADO)
 - Pause e stop.  // Feito em 07/03
 - Criar o x2(>>) e x3(>>>).  // Feito em 07/03
 - Substituir o botão de Bead pelo de Stop, Pause, x2 e x3.  // Feito em 07/03

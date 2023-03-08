@@ -51,6 +51,15 @@ function Timer() {
     setSpeed(1);
     setTimerDelay(4);
   };
+  const halfSpeed = () => {
+    setSpeed(0.5);
+    setTimerDelay(4 * 2 * speed);
+  };
+
+  const thirdSpeed = () => {
+    setSpeed(0.33);
+    setTimerDelay(4 * 3 * speed);
+  };
 
   const doubleSpeed = () => {
     setSpeed(2);
@@ -62,29 +71,15 @@ function Timer() {
     setTimerDelay(4 / 3 / speed);
   };
 
-  const handleTimerDelayChange = event => {
-    const newTimerDelay = Number(event.target.value);
-    setTimerDelay(newTimerDelay);
-  };
-
   return (
     <div>
       <p>Count: {count}</p>
       <p>Speed: {speed}</p>
-      <div>
-        <label htmlFor="timer-delay-input">Timer Delay (seconds):</label>
-        <input
-          id="timer-delay-input"
-          type="number"
-          min="1"
-          max="10"
-          value={timerDelay}
-          onChange={handleTimerDelayChange}
-        />
-      </div>
       <button onClick={startTimer}>Start</button>
       <button onClick={pauseTimer}>Pause</button>
       <button onClick={resetTimer}>Reset</button>
+      <button onClick={halfSpeed}>0.5x Speed</button>
+      <button onClick={thirdSpeed}>0.33x Speed</button>
       <button onClick={regularSpeed}>Regular Speed</button>
       <button onClick={doubleSpeed}>2x Speed</button>
       <button onClick={tripleSpeed}>3x Speed</button>
