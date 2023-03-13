@@ -23,8 +23,8 @@ A proposta desse projeto é criar uma japamala (o rosário budista) que consiste
 - Criar o contador exibível podendo desabilita-lo. // Feito em 03/03
 - Limitar a 108. // Feito em 03/03
 - Criar o modo automático com timer para cada recitação. (Ver ### Modo Automático)   // Feito em 08/03
-- Integrar modo automático e manual.
-- Possibilitar a alternância dos dois modos.
+- Integrar modo automático e manual. // Feito em 13/03
+- Possibilitar a alternância dos dois modos.  // Feito em 13/03
 - Criar os sons de início, click e final.
 - Criar slider para desabilitar sons individualmente.
 - Criar slider para não exibir o contador. // Feito em 03/03

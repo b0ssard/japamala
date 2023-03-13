@@ -16,10 +16,6 @@ function App() {
     }
   }
 
-  function countReset() {
-    setCount(0);
-  }
-
   return (
     <ChakraProvider theme={theme}>
       <OnOff onToggle={() => setShowTimer(!showTimer)} />
@@ -41,7 +37,7 @@ function App() {
               icon={<Box as="img" src={beads} alt="Beads" w="20px" h="20px" />}
               text="Contar."
             />
-            <Bead onClick={countReset} text="Resetar." />
+            <Bead onClick={() => setCount(0)} text="Resetar." />
           </Center>
           <Center>
             <OnOff onToggle={() => setShowCounter(!showCounter)} />
