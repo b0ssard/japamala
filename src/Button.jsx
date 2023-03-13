@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-import { Button, Box } from '@chakra-ui/react';
-import beads from './images/beads.png';
+import { Button} from '@chakra-ui/react';
 
 function Bead(props) {
   useEffect(() => {
     const handleKeyDown = event => {
-      if (event.code === 'Space' || event.code === 'Enter') {
-        document.getElementById('beadButton').blur();
+      if (event.code === 'Enter') {
         props.onClick();
       }
     };
@@ -14,21 +12,20 @@ function Bead(props) {
     document.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.getElementById('beadButton').blur();
+      document.removeEventListener('keydown', handleKeyDown)
     };
   });
 
   return (
     <Button
-      leftIcon={<Box as="img" src={beads} alt="Beads" w="20px" h="20px" />}
+      leftIcon={props.icon}
       id="beadButton"
       colorScheme="orange"
       size="xs"
       textAlign="center"
       onClick={props.onClick}
     >
-      Contar.
+      {props.text}
     </Button>
   );
 }
