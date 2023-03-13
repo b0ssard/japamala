@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 function Timer() {
+  const intervalRef = useRef();
   const [count, setCount] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [timerDelay, setTimerDelay] = useState(4);
-
-  const intervalRef = useRef();
 
   useEffect(() => {
     if (count >= 108) {
@@ -28,8 +27,7 @@ function Timer() {
 
   const handleReset = () => {
     setCount(0);
-    clearInterval(intervalRef.current);
-    intervalRef.current = undefined;
+    handlePause();
   };
 
   const handleSpeedChange = (newSpeed, newDelay) => {
@@ -50,13 +48,14 @@ function Timer() {
       <button onClick={handleStart}>Start</button>
       <button onClick={handlePause}>Pause</button>
       <button onClick={handleReset}>Reset</button>
-      <button onClick={() => handleSpeedChange(0.5, 4 * 2)}>0.5x Speed</button>
-      <button onClick={() => handleSpeedChange(0.33, 4 * 3)}>
-        0.33x Speed
-      </button>
-      <button onClick={() => handleSpeedChange(1, 4)}>Regular Speed</button>
-      <button onClick={() => handleSpeedChange(2, 4 / 2)}>2x Speed</button>
-      <button onClick={() => handleSpeedChange(3, 4 / 3)}>3x Speed</button>
+      {[0.5, 0.33, 1, 2, 3].map(newSpeed => (
+        <button
+          key={newSpeed}
+          onClick={() => handleSpeedChange(newSpeed, 4 / newSpeed)}
+        >
+          {newSpeed}x Speed
+        </button>
+      ))}
     </div>
   );
 }
