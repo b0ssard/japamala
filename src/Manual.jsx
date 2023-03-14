@@ -9,10 +9,13 @@ import { Box } from '@chakra-ui/react';
 function Manual() {
   const [count, setCount] = useState(0);
   const [showCounter, setShowCounter] = useState(true);
+  const [playSound, setPlaySound] = useState(true);
 
   const audio = new Audio(bowlStruck);
   function playBowlStruck() {
-    audio.play();
+    if (playSound) {
+      audio.play();
+    }
   }
 
   function countBead() {
@@ -47,6 +50,10 @@ function Manual() {
       <Box textAlign="center" my={4}>
         <OnOff onToggle={() => setShowCounter(!showCounter)} />
       </Box>
+      <OnOff
+        onToggle={() => setPlaySound(!playSound)}
+        defaultChecked={playSound}
+      />
     </div>
   );
 }

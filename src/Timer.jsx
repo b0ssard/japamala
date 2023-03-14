@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Bead from './Button';
+import OnOff from './OnOff';
 import bowl from './images/bowl.png';
 import beads from './images/beads.png';
 import bowlStruck from './sounds/bowlstruck.mp3';
@@ -10,10 +11,13 @@ function Timer() {
   const [count, setCount] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [timerDelay, setTimerDelay] = useState(4);
+  const [playSound, setPlaySound] = useState(true);
 
   const audio = new Audio(bowlStruck);
   function playBowlStruck() {
-    audio.play();
+    if (playSound) {
+      audio.play();
+    }
   }
 
   useEffect(() => {
@@ -82,6 +86,10 @@ function Timer() {
           text={'Ritmo: ' + newSpeed}
         />
       ))}
+      <OnOff
+        onToggle={() => setPlaySound(!playSound)}
+        defaultChecked={playSound}
+      />
     </div>
   );
 }
