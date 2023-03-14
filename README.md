@@ -25,7 +25,7 @@ A proposta desse projeto é criar uma japamala (o rosário budista) que consiste
 - Criar o modo automático com timer para cada recitação. (Ver ### Modo Automático)   // Feito em 08/03
 - Integrar modo automático e manual. // Feito em 13/03
 - Possibilitar a alternância dos dois modos.  // Feito em 13/03
-- Criar os sons de início, click e final.
+- Criar os sons de início, click e final. // Feito em 14/03
 - Criar slider para desabilitar sons individualmente.
 - Criar slider para não exibir o contador. // Feito em 03/03
 - Manual de instruções.

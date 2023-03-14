@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Bead from './Button';
 import bowl from './images/bowl.png';
 import beads from './images/beads.png';
+import bowlStruck from './sounds/bowlstruck.mp3';
 import { Box } from '@chakra-ui/react';
 
 function Timer() {
@@ -10,14 +11,23 @@ function Timer() {
   const [speed, setSpeed] = useState(1);
   const [timerDelay, setTimerDelay] = useState(4);
 
+  const audio = new Audio(bowlStruck);
+  function playBowlStruck() {
+    audio.play();
+  }
+
   useEffect(() => {
-    if (count >= 108) {
+    if (count === 108) {
       clearInterval(intervalRef.current);
+      playBowlStruck();
     }
-  }, [count]);
+  });
 
   const handleStart = () => {
     if (!intervalRef.current) {
+      if (count === 0) {
+        playBowlStruck();
+      }
       intervalRef.current = setInterval(() => {
         setCount(count => count + 1);
       }, timerDelay * 1000);
