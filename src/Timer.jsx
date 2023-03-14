@@ -1,4 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Bead from './Button';
+import bowl from './images/bowl.png';
+import beads from './images/beads.png';
+import { Box } from '@chakra-ui/react';
 
 function Timer() {
   const intervalRef = useRef();
@@ -45,16 +49,28 @@ function Timer() {
     <div>
       <p>Count: {count}</p>
       <p>Speed: {speed}</p>
-      <button onClick={handleStart}>Start</button>
-      <button onClick={handlePause}>Pause</button>
-      <button onClick={handleReset}>Reset</button>
+      <Bead
+        onClick={handleStart}
+        icon={<Box as="img" src={bowl} alt="Tibetan Bowl" w="20px" h="20px" />}
+        text="Começar"
+      />
+      <Bead
+        onClick={handlePause}
+        icon={<Box as="img" src={bowl} alt="Tibetan Bowl" w="20px" h="20px" />}
+        text="Pausar"
+      />
+      <Bead
+        onClick={handleReset}
+        icon={<Box as="img" src={bowl} alt="Tibetan Bowl" w="20px" h="20px" />}
+        text="Resetar"
+      />
       {[0.5, 0.33, 1, 2, 3].map(newSpeed => (
-        <button
+        <Bead
           key={newSpeed}
           onClick={() => handleSpeedChange(newSpeed, 4 / newSpeed)}
-        >
-          {newSpeed}x Speed
-        </button>
+          icon={<Box as="img" src={beads} alt="Beads" w="20px" h="20px" />}
+          text={'Ritmo: ' + newSpeed}
+        />
       ))}
     </div>
   );
