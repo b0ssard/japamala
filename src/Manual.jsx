@@ -1,28 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Bead from './Button';
 import OnOff from './OnOff';
 import beads from './images/beads.png';
 import bowl from './images/bowl.png';
-import bowlStruck from './sounds/bowlstruck.mp3';
+import bowlStruck from './sounds/bowl.mp3';
 import { Box } from '@chakra-ui/react';
 
 function Manual() {
   const [count, setCount] = useState(0);
   const [showCounter, setShowCounter] = useState(true);
   const [playSound, setPlaySound] = useState(true);
-
-  const audio = new Audio(bowlStruck);
-  function playBowlStruck() {
-    if (playSound) {
-      audio.play();
-    }
-  }
+  const audioRef = useRef(new Audio(bowlStruck));
 
   function countBead() {
     if (count === 0 || count === 107) {
-      playBowlStruck();}
+      playSoundEffect();
+    }
     if (count < 108) {
-      setCount(count + 1);
+      setCount(count => count + 1);
+    }
+  }
+
+  function playSoundEffect() {
+    if (playSound) {
+      audioRef.current.play();
     }
   }
 

@@ -1,22 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Box } from '@chakra-ui/react';
 import Bead from './Button';
 import OnOff from './OnOff';
 import bowl from './images/bowl.png';
 import beads from './images/beads.png';
-import bowlStruck from './sounds/bowlstruck.mp3';
-import { Box } from '@chakra-ui/react';
+import bowlStruck from './sounds/bowl.mp3';
 
 function Timer() {
-  const intervalRef = useRef();
+  const intervalRef = useRef(null);
+  const audioRef = useRef(new Audio(bowlStruck));
   const [count, setCount] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [timerDelay, setTimerDelay] = useState(4);
   const [playSound, setPlaySound] = useState(true);
 
-  const audio = new Audio(bowlStruck);
   function playBowlStruck() {
     if (playSound) {
-      audio.play();
+      audioRef.current.play();
     }
   }
 
@@ -40,7 +40,7 @@ function Timer() {
 
   const handlePause = () => {
     clearInterval(intervalRef.current);
-    intervalRef.current = undefined;
+    intervalRef.current = null;
   };
 
   const handleReset = () => {
