@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import OnOff from './OnOff';
-import Timer from './Timer';
-import Manual from './Manual';
+import TimerUI from './TimerUI';
+import ManualUI from './ManualUI';
 import Navbar from './Navbar';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 
@@ -10,10 +10,10 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-    <Navbar />
+      <Navbar />
       <OnOff onToggle={() => setShowTimer(!showTimer)} />
-      {showTimer && <Timer />}
-      {!showTimer && <Manual /> }
+      {showTimer && <TimerUI />}
+      {!showTimer && <ManualUI />}
     </ChakraProvider>
   );
 }

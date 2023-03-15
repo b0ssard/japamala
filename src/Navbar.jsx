@@ -1,13 +1,22 @@
-import { Flex, HStack, chakra } from '@chakra-ui/react';
+import { Box, HStack, StackDivider } from '@chakra-ui/react';
 import React from 'react';
 
 export default function Navbar() {
   return (
-    <chakra.header id="header">
-      <Flex w="100%" px="6" py="5" align="center" justify="space-between" backgroundColor="red">
-        <HStack as="nav" spacing="15"></HStack>
-        <HStack></HStack>
-      </Flex>
-    </chakra.header>
+    <HStack
+      direction={['column', 'row']}
+      spacing="24px"
+      divider={<StackDivider borderColor="gray.200" />}
+    >
+      <Box w="40px" h="40px" bg="yellow.200">
+        1
+      </Box>
+      <Box w="40px" h="40px" bg="tomato">
+        2
+      </Box>
+      <Box w="40px" h="40px" bg="pink.100">
+        3
+      </Box>
+    </HStack>
   );
 }
