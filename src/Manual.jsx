@@ -1,3 +1,5 @@
+// THIS CODE IS NOT BEING USED ANYMORE, SPLITTED IN FUNCTION AND UI.
+
 import React, { useState, useRef } from 'react';
 import Bead from './Button';
 import OnOff from './OnOff';

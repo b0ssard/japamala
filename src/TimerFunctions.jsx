@@ -1,30 +1,22 @@
 import { useRef, useEffect, useState } from 'react';
-import bowlStruck from './sounds/bowl.mp3';
 
 function useTimer(props) {
   const intervalRef = useRef(null);
-  const bowlStruckRef = useRef(new Audio(bowlStruck));
   const [count, setCount] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [timerDelay, setTimerDelay] = useState(4);
 
-  function playBowlStruck() {
-    if (props.playSound) {
-      bowlStruckRef.current.play();
-    }
-  }
-
-  useEffect(() => {
+    useEffect(() => {
     if (count === 108) {
       clearInterval(intervalRef.current);
-      playBowlStruck();
+      props.playBowlStruck();
     }
   });
 
   const handleStart = () => {
     if (!intervalRef.current) {
       if (count === 0) {
-        playBowlStruck();
+        props.playBowlStruck();
       }
       intervalRef.current = setInterval(() => {
         setCount(count => count + 1);
@@ -40,7 +32,7 @@ function useTimer(props) {
   const handleReset = () => {
     setCount(0);
     handlePause();
-    playBowlStruck();
+    props.playBowlStruck();
   };
 
   const handleSpeedChange = (newSpeed, newDelay) => {

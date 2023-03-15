@@ -1,3 +1,5 @@
+// THIS CODE IS NOT BEING USED ANYMORE, SPLITTED IN FUNCTION AND UI.
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
 import Bead from './Button';
