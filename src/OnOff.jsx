@@ -1,7 +1,7 @@
 import { Flex, Switch, Text } from '@chakra-ui/react';
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 
-function OnOff(props) {
+export default function OnOff(props) {
   const [isChecked, setIsChecked] = useState(false);
   const switchRef = useRef(null);
 
@@ -23,5 +23,3 @@ function OnOff(props) {
     </Flex>
   );
 }
-
-export default OnOff;

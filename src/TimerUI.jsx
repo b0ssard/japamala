@@ -1,7 +1,8 @@
-import { Box } from '@chakra-ui/react';
+import { Flex, Stack } from '@chakra-ui/react';
 import useTimer from './TimerFunctions';
 import BuddhaCard from './Card';
 import CountBeadButton from './Button';
+import IconBox from './IconBox';
 import beadsImage from './images/beads.png';
 import bowlImage from './images/bowl.png';
 
@@ -16,39 +17,37 @@ function TimerUI(props) {
   } = useTimer(props);
 
   return (
-    <div>
+    <Stack spacing={5} align="center">
       <BuddhaCard content={mantra} />
       <p>Speed: {speed}</p>
-      <CountBeadButton
-        onClick={handleStart}
-        icon={
-          <Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />
-        }
-        text="Começar"
-      />
-      <CountBeadButton
-        onClick={handlePause}
-        icon={
-          <Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />
-        }
-        text="Pausar"
-      />
-      <CountBeadButton
-        onClick={handleReset}
-        icon={
-          <Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />
-        }
-        text="Resetar"
-      />
-      {[0.5, 0.33, 1, 2, 3].map(newSpeed => (
+      <Flex>
         <CountBeadButton
-          key={newSpeed}
-          onClick={() => handleSpeedChange(newSpeed, 4 / newSpeed)}
-          icon={<Box as="img" src={beadsImage} alt="Beads" w="20px" h="20px" />}
-          text={'Ritmo: ' + newSpeed}
+          onClick={handleStart}
+          icon={<IconBox src={bowlImage} alt="Tibetan Bowl" />}
+          text="Começar"
         />
-      ))}
-    </div>
+        <CountBeadButton
+          onClick={handlePause}
+          icon={<IconBox src={bowlImage} alt="Tibetan Bowl" />}
+          text="Pausar"
+        />
+        <CountBeadButton
+          onClick={handleReset}
+          icon={<IconBox src={bowlImage} alt="Tibetan Bowl" />}
+          text="Resetar"
+        />
+      </Flex>
+      <Flex justifyContent="space-between">
+        {[0.5, 0.33, 1, 2, 3].map(newSpeed => (
+          <CountBeadButton
+            key={newSpeed}
+            onClick={() => handleSpeedChange(newSpeed, 4 / newSpeed)}
+            icon={<IconBox src={beadsImage} alt="Beads" />}
+            text={'Ritmo: ' + newSpeed}
+          />
+        ))}
+      </Flex>
+    </Stack>
   );
 }
 
