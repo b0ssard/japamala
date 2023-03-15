@@ -8,7 +8,7 @@ function useManual(props) {
       props.playBowlStruck();
     }
     if (mantra < 108) {
-      setMantra(mantra + 1);
+      setMantra(mantra => mantra + 1);
     }
   }
 

@@ -7,7 +7,7 @@ import beads from './images/beads.png';
 
 function TimerUI(props) {
   const {
-    count,
+    mantra,
     speed,
     handleStart,
     handlePause,
@@ -17,7 +17,7 @@ function TimerUI(props) {
 
   return (
     <div>
-      <p>Count: {count}</p>
+      <p>Count: {mantra}</p>
       <p>Speed: {speed}</p>
       <Bead
         onClick={handleStart}

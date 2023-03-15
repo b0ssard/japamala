@@ -22,8 +22,12 @@ function App() {
       {/* <Navbar /> */}
       <OnOff onToggle={() => setPlaySound(!playSound)} />
       <OnOff onToggle={() => setMode(!mode)} />
-      {mode && <TimerUI playSound={playSound} playBowlStruck={playBowlStruck} />}
-      {!mode && <ManualUI playSound={playSound} playBowlStruck={playBowlStruck} />}
+      {mode && (
+        <TimerUI playSound={playSound} playBowlStruck={playBowlStruck} />
+      )}
+      {!mode && (
+        <ManualUI playSound={playSound} playBowlStruck={playBowlStruck} />
+      )}
     </ChakraProvider>
   );
 }

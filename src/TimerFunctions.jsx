@@ -2,12 +2,12 @@ import { useRef, useEffect, useState } from 'react';
 
 function useTimer(props) {
   const intervalRef = useRef(null);
-  const [count, setCount] = useState(0);
+  const [mantra, setMantra] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [timerDelay, setTimerDelay] = useState(4);
 
     useEffect(() => {
-    if (count === 108) {
+    if (mantra === 108) {
       clearInterval(intervalRef.current);
       props.playBowlStruck();
     }
@@ -15,11 +15,11 @@ function useTimer(props) {
 
   const handleStart = () => {
     if (!intervalRef.current) {
-      if (count === 0) {
+      if (mantra === 0) {
         props.playBowlStruck();
       }
       intervalRef.current = setInterval(() => {
-        setCount(count => count + 1);
+        setMantra(mantra => mantra + 1);
       }, timerDelay * 1000);
     }
   };
@@ -30,7 +30,7 @@ function useTimer(props) {
   };
 
   const handleReset = () => {
-    setCount(0);
+    setMantra(0);
     handlePause();
     props.playBowlStruck();
   };
@@ -41,13 +41,13 @@ function useTimer(props) {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = setInterval(() => {
-        setCount(count => count + 1);
+        setMantra(mantra => mantra + 1);
       }, newDelay * 1000);
     }
   };
 
   return {
-    count,
+    mantra,
     speed,
     handleStart,
     handlePause,
