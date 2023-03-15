@@ -2,12 +2,11 @@ import { useRef, useEffect, useState } from 'react';
 
 function useTimer(props) {
   const intervalRef = useRef(null);
-  const [mantra, setMantra] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [timerDelay, setTimerDelay] = useState(4);
 
     useEffect(() => {
-    if (mantra === 108) {
+    if (props.mantra === 108) {
       clearInterval(intervalRef.current);
       props.playBowlStruck();
     }
@@ -15,11 +14,11 @@ function useTimer(props) {
 
   const handleStart = () => {
     if (!intervalRef.current) {
-      if (mantra === 0) {
+      if (props.mantra === 0) {
         props.playBowlStruck();
       }
       intervalRef.current = setInterval(() => {
-        setMantra(mantra => mantra + 1);
+        props.setMantra(props.mantra + 1);
       }, timerDelay * 1000);
     }
   };
@@ -30,24 +29,25 @@ function useTimer(props) {
   };
 
   const handleReset = () => {
-    setMantra(0);
+    props.setMantra(0);
     handlePause();
     props.playBowlStruck();
   };
 
-  const handleSpeedChange = (newSpeed, newDelay) => {
-    setSpeed(newSpeed);
-    setTimerDelay(newDelay);
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = setInterval(() => {
-        setMantra(mantra => mantra + 1);
-      }, newDelay * 1000);
-    }
-  };
+const handleSpeedChange = (newSpeed, newDelay) => {
+  setSpeed(newSpeed);
+  setTimerDelay(newDelay);
+  if (intervalRef.current) {
+    clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      props.setMantra(prevMantra => prevMantra + 1);
+    }, newDelay * 1000);
+  }
+};
+
 
   return {
-    mantra,
+    mantra: props.mantra,
     speed,
     handleStart,
     handlePause,
