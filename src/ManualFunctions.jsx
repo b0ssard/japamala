@@ -1,4 +1,4 @@
-function useManual(props) {
+export default function useManual(props) {
   function countBead() {
     if (props.mantra === 0 || props.mantra === 107) {
       props.playBowlStruck();
@@ -19,5 +19,3 @@ function useManual(props) {
     resetMantra,
   };
 }
-
-export default useManual;

@@ -9,11 +9,9 @@ A proposta desse projeto é criar uma japamala (o rosário budista) que consiste
 ## Funcionalidades
 
 - Fazer o modo manual, no qual a contagem depende do click do usuário a cada recitação (podendo ser um botão no broswer e do teclado).
-- Fazer o modo automático, com um tempo automático (talvez um sugerido padrão de experiência pessoal) e a possibilidade de diminuir o tempo com clicks espécie >> e >>>, para a experiência da recitação em sussuro e em voz baixa. Talvez poder ajustar o tempo das duas velocidades customizada pelo usuário ou apenas multiplica-la.
+- Fazer o modo automático, com um tempo automático (talvez um sugerido padrão de experiência pessoal) e a possibilidade de diminuir o tempo com clicks espécie >> e >>>, para a experiência da recitação em sussuro e em voz baixa.
 - Um toque de sino tibetano simbólico para início e fim.
 - Exibição de contador para o meditante ter noção de onde está na prática. Podendo o mesmo não ser exibido caso o meditante não queira se focar nisso.
-- Sons (clicks?) desabilitáveis para cada recitação.
-- (???) Colocar 3 mantras padrões para tempo, exibindo sílabas estilo karaoke? (???)
 
 
 ## Roadmap

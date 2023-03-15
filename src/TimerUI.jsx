@@ -1,9 +1,8 @@
-import React from 'react';
 import { Box } from '@chakra-ui/react';
-import Bead from './Button';
 import useTimer from './TimerFunctions';
-import bowl from './images/bowl.png';
-import beads from './images/beads.png';
+import CountBeadButton from './Button';
+import bowlImage from './images/bowl.png';
+import beadsImage from './images/beads.png';
 
 function TimerUI(props) {
   const {
@@ -19,26 +18,26 @@ function TimerUI(props) {
     <div>
       <p>Count: {mantra}</p>
       <p>Speed: {speed}</p>
-      <Bead
+      <CountBeadButton
         onClick={handleStart}
-        icon={<Box as="img" src={bowl} alt="Tibetan Bowl" w="20px" h="20px" />}
+        icon={<Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />}
         text="Começar"
       />
-      <Bead
+      <CountBeadButton
         onClick={handlePause}
-        icon={<Box as="img" src={bowl} alt="Tibetan Bowl" w="20px" h="20px" />}
+        icon={<Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />}
         text="Pausar"
       />
-      <Bead
+      <CountBeadButton
         onClick={handleReset}
-        icon={<Box as="img" src={bowl} alt="Tibetan Bowl" w="20px" h="20px" />}
+        icon={<Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />}
         text="Resetar"
       />
       {[0.5, 0.33, 1, 2, 3].map(newSpeed => (
-        <Bead
+        <CountBeadButton
           key={newSpeed}
           onClick={() => handleSpeedChange(newSpeed, 4 / newSpeed)}
-          icon={<Box as="img" src={beads} alt="Beads" w="20px" h="20px" />}
+          icon={<Box as="img" src={beadsImage} alt="Beads" w="20px" h="20px" />}
           text={'Ritmo: ' + newSpeed}
         />
       ))}

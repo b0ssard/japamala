@@ -1,4 +1,4 @@
-// THIS CODE IS NOT BEING USED ANYMORE, SPLITTED IN FUNCTION AND UI.
+// This code is not being used anymore, split into function and UI.
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
