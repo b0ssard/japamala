@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box } from '@chakra-ui/react';
 import Bead from './Button';
-import OnOff from './OnOff';
 import useTimer from './TimerFunctions';
 import bowl from './images/bowl.png';
 import beads from './images/beads.png';
 
-function TimerUI() {
-  const { count, speed, handleStart, handlePause, handleReset, handleSpeedChange } =
-    useTimer();
-
-  const [playSound, setPlaySound] = useState(true);
+function TimerUI(props) {
+  const {
+    count,
+    speed,
+    handleStart,
+    handlePause,
+    handleReset,
+    handleSpeedChange,
+  } = useTimer(props);
 
   return (
     <div>
@@ -39,10 +42,6 @@ function TimerUI() {
           text={'Ritmo: ' + newSpeed}
         />
       ))}
-      <OnOff
-        onToggle={() => setPlaySound(!playSound)}
-        defaultChecked={playSound}
-      />
     </div>
   );
 }

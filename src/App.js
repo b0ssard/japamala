@@ -6,14 +6,16 @@ import Navbar from './Navbar';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 
 function App() {
-  const [showTimer, setShowTimer] = useState(true);
+  const [mode, setMode] = useState(true);
+  const [playSound, setPlaySound] = useState(true);
 
   return (
     <ChakraProvider theme={theme}>
       <Navbar />
-      <OnOff onToggle={() => setShowTimer(!showTimer)} />
-      {showTimer && <TimerUI />}
-      {!showTimer && <ManualUI />}
+      <OnOff onToggle={() => setPlaySound(!playSound)} />
+      <OnOff onToggle={() => setMode(!mode)} />
+      {mode && <TimerUI playSound={playSound} />}
+      {!mode && <ManualUI playSound={playSound} />}
     </ChakraProvider>
   );
 }

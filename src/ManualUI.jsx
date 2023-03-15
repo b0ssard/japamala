@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Box } from '@chakra-ui/react';
 import Bead from './Button';
 import OnOff from './OnOff';
@@ -5,14 +6,17 @@ import beads from './images/beads.png';
 import bowl from './images/bowl.png';
 import useManual from './ManualFunctions';
 
-function ManualUI() {
-  const { mantra, playSound, countBead, resetMantra, toggleSound } = useManual();
+function ManualUI(props) {
+  const [showCounter, setShowCounter] = useState(true);
+  const { mantra, countBead, resetMantra } = useManual(props);
 
   return (
     <div>
-      <Box textAlign="center" fontSize="xl">
-        {mantra}
-      </Box>
+      {showCounter && (
+        <Box textAlign="center" fontSize="xl">
+          {mantra}
+        </Box>
+      )}
       <Box textAlign="center">
         <Bead
           onClick={countBead}
@@ -28,7 +32,7 @@ function ManualUI() {
         />
       </Box>
       <Box textAlign="center" my={4}>
-        <OnOff onToggle={toggleSound} defaultChecked={playSound} />
+        <OnOff onToggle={() => setShowCounter(!showCounter)} />
       </Box>
     </div>
   );

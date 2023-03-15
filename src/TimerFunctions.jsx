@@ -1,15 +1,17 @@
 import { useRef, useEffect, useState } from 'react';
 import bowlStruck from './sounds/bowl.mp3';
 
-function useTimer() {
+function useTimer(props) {
   const intervalRef = useRef(null);
-  const audioRef = useRef(new Audio(bowlStruck));
+  const bowlStruckRef = useRef(new Audio(bowlStruck));
   const [count, setCount] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [timerDelay, setTimerDelay] = useState(4);
 
   function playBowlStruck() {
-    audioRef.current.play();
+    if (props.playSound) {
+      bowlStruckRef.current.play();
+    }
   }
 
   useEffect(() => {
@@ -38,6 +40,7 @@ function useTimer() {
   const handleReset = () => {
     setCount(0);
     handlePause();
+    playBowlStruck();
   };
 
   const handleSpeedChange = (newSpeed, newDelay) => {
@@ -51,7 +54,14 @@ function useTimer() {
     }
   };
 
-  return { count, speed, handleStart, handlePause, handleReset, handleSpeedChange };
+  return {
+    count,
+    speed,
+    handleStart,
+    handlePause,
+    handleReset,
+    handleSpeedChange,
+  };
 }
 
 export default useTimer;
