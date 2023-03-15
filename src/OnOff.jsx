@@ -1,4 +1,4 @@
-import { Switch } from '@chakra-ui/react';
+import { Flex, Switch, Text } from '@chakra-ui/react';
 import React, { useState, useRef } from 'react';
 
 function OnOff(props) {
@@ -12,12 +12,15 @@ function OnOff(props) {
   };
 
   return (
-    <Switch
-      ref={switchRef}
-      size="lg"
-      isChecked={isChecked}
-      onChange={handleToggle}
-    />
+    <Flex direction="column" alignItems="center">
+      <Switch
+        ref={switchRef}
+        size="lg"
+        isChecked={isChecked}
+        onChange={handleToggle}
+      />
+      <Text mt={2}>{props.text}</Text>
+    </Flex>
   );
 }
 

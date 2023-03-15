@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import OnOff from './OnOff';
 import TimerUI from './TimerUI';
 import ManualUI from './ManualUI';
-// import Navbar from './Navbar';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import bowlStruck from './sounds/bowl.mp3';
 
@@ -22,9 +21,8 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      {/* <Navbar /> */}
-      <OnOff onToggle={() => setPlaySound(!playSound)} />
-      <OnOff onToggle={() => setMode(!mode)} />
+      <OnOff onToggle={() => setPlaySound(!playSound)} text="Não tocar sinos" />
+      <OnOff onToggle={() => setMode(!mode)} text="Modo manual" />
       {mode ? (
         <TimerUI
           playSound={playSound}

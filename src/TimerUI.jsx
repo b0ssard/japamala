@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react';
 import useTimer from './TimerFunctions';
 import CountBeadButton from './Button';
-import bowlImage from './images/bowl.png';
 import beadsImage from './images/beads.png';
+import bowlImage from './images/bowl.png';
 
 function TimerUI(props) {
   const {

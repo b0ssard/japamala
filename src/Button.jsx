@@ -29,9 +29,11 @@ function Bead(props) {
       leftIcon={props.icon}
       ref={buttonRef}
       colorScheme="orange"
-      size="xs"
+      size="sm"
       textAlign="center"
+      variant="solid"
       onClick={handleClick}
+      ml={5}
     >
       {props.text}
     </Button>
