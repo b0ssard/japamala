@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import useTimer from './TimerFunctions';
+import BuddhaCard from './Card';
 import CountBeadButton from './Button';
 import beadsImage from './images/beads.png';
 import bowlImage from './images/bowl.png';
@@ -16,21 +17,27 @@ function TimerUI(props) {
 
   return (
     <div>
-      <p>Count: {mantra}</p>
+      <BuddhaCard content={mantra} />
       <p>Speed: {speed}</p>
       <CountBeadButton
         onClick={handleStart}
-        icon={<Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />}
+        icon={
+          <Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />
+        }
         text="Começar"
       />
       <CountBeadButton
         onClick={handlePause}
-        icon={<Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />}
+        icon={
+          <Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />
+        }
         text="Pausar"
       />
       <CountBeadButton
         onClick={handleReset}
-        icon={<Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />}
+        icon={
+          <Box as="img" src={bowlImage} alt="Tibetan Bowl" w="20px" h="20px" />
+        }
         text="Resetar"
       />
       {[0.5, 0.33, 1, 2, 3].map(newSpeed => (
