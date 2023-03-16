@@ -14,7 +14,9 @@ export default function Bead(props) {
       <Button
         leftIcon={props.icon}
         ref={buttonRef}
-        colorScheme="orange"
+        backgroundColor="#990000"
+        color="#FC8621"
+        _hover={{ bg: '#AC0D0D' }}
         size="sm"
         textAlign="center"
         variant="solid"

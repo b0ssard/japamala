@@ -1,21 +1,21 @@
 import { Box, Stack, Text } from '@chakra-ui/react';
 
-export default function BuddhaCard(props) {
+export default function TextBox(props) {
   return (
     <Stack align="center" margin="20px">
       <Box
         maxW="sm"
         borderWidth="1px"
         borderRadius="lg"
-        borderColor="grey"
         overflow="hidden"
-        height="200px"
-        width="200px"
         alignItems="center"
+        mt="1"
+        fontWeight="semibold"
+        as="h4"
+        lineHeight="tight"
+        noOfLines={1}
       >
-        <Stack spacing={5} alignItems="center" padding="25px">
-          <Text fontSize="105px">{props.content}</Text>
-        </Stack>
+        <Text>{props.text}</Text>
       </Box>
     </Stack>
   );

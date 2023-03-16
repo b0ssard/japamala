@@ -8,7 +8,7 @@ export default function Footer() {
   const links = [
     {
       label: <Box as="img" src={linkedinImage} alt="LinkedIn" />,
-      href:"https://www.linkedin.com/in/victorbossard/",
+      href: 'https://www.linkedin.com/in/victorbossard/',
     },
     {
       label: <Box as="img" src={githubImage} alt="GitHub" />,
@@ -31,9 +31,9 @@ export default function Footer() {
       justify="space-between"
       py="6"
       px="8"
-      bg="gray.800"
-      color="white"
-      position="fixed"
+      bg="#990000"
+      color="#FFEE63"
+      // position="fixed"
       bottom="0"
       width="100%"
     >
@@ -48,6 +48,7 @@ export default function Footer() {
             mr="6"
             href={link.href}
             target="_blank"
+            rel="noreferrer"
             w="24px"
             h="24px"
           >

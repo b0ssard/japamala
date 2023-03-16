@@ -2,6 +2,7 @@ import { Box, Flex, Stack } from '@chakra-ui/react';
 import useTimer from './TimerFunctions';
 import BuddhaCard from './Card';
 import CountBeadButton from './Button';
+import TextBox from './Box';
 import beadsImage from './images/beads.png';
 import bowlImage from './images/bowl.png';
 import lotusImage from './images/lotus.png';
@@ -35,15 +36,7 @@ function TimerUI(props) {
         />
         <CountBeadButton
           onClick={handlePause}
-          icon={
-            <Box
-              as="img"
-              src={lotusImage}
-              alt="Lotus"
-              w="20px"
-              h="20px"
-            />
-          }
+          icon={<Box as="img" src={lotusImage} alt="Lotus" w="20px" h="20px" />}
           text="Pausar"
         />
         <CountBeadButton
@@ -62,20 +55,7 @@ function TimerUI(props) {
         />
       </Flex>
       <Stack alignItems="center">
-        <Box
-          maxW="sm"
-          borderWidth="1px"
-          borderRadius="lg"
-          overflow="hidden"
-          alignItems="center"
-          mt="1"
-          fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          noOfLines={1}
-        >
-          Ritmo: {timerDelay.toFixed()} segundos
-        </Box>
+        <TextBox text={`Ritmo: ${timerDelay.toFixed()} segundos`} />
       </Stack>
       <Flex justifyContent="space-between">
         {[0.33, 0.5, 1, 2, 3].map(newSpeed => (

@@ -23,7 +23,7 @@ export default function App() {
   }
 
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider theme={theme} >
       <Navbar />
       <OnOff onToggle={() => setPlaySound(!playSound)} text="Não tocar sinos" />
       <Bead
