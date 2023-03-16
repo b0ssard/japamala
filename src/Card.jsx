@@ -2,7 +2,7 @@ import { Box, Stack, Text } from '@chakra-ui/react';
 
 export default function BuddhaCard(props) {
   return (
-    <Stack spacing={5} align="center">
+    <Stack align="center" margin="20px">
       <Box
         maxW="sm"
         borderWidth="1px"

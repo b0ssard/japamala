@@ -3,7 +3,7 @@ import { ChakraProvider, theme } from '@chakra-ui/react';
 import ManualUI from './ManualUI';
 import TimerUI from './TimerUI';
 import Footer from './Footer';
-import ModeButton from './ButtonMode';
+import Bead from './Button';
 import Navbar from './Navbar';
 import OnOff from './OnOff';
 import bowlStruck from './sounds/bowl.mp3';
@@ -26,7 +26,7 @@ export default function App() {
     <ChakraProvider theme={theme}>
       <Navbar />
       <OnOff onToggle={() => setPlaySound(!playSound)} text="Não tocar sinos" />
-      <ModeButton
+      <Bead
         onClick={() => setMode(!mode)}
         text={mode ? 'Ir para modo manual' : 'Ir para modo automático'}
       />

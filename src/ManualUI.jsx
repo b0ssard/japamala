@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Flex, Image, Stack, Text } from '@chakra-ui/react';
 import useManual from './ManualFunctions';
+import BuddhaCard from './Card';
 import CountBeadButton from './Button';
 import ToggleCounterSwitch from './OnOff';
 import beadsImage from './images/beads.png';
@@ -12,26 +13,18 @@ function ManualUI(props) {
   const { mantra, countBead, resetMantra } = useManual(props);
 
   return (
-    <Stack spacing={5} align="center">
-      <Box
-        maxW="sm"
-        borderWidth="1px"
-        borderRadius="lg"
-        overflow="hidden"
-        height="200px"
-        width="200px"
-        alignItems="center"
-      >
-        <Stack spacing={5} alignItems="center" padding="25px">
-          {showCounter ? (
+    <Stack spacing={5} align="center" justify="center" direction="column">
+      <BuddhaCard
+        content={
+          showCounter ? (
             <Text fontSize="105px">{mantra}</Text>
           ) : (
             <Image src={buddhalImage} alt="Buddha" sizes="100px" />
-          )}
-        </Stack>
-      </Box>
+          )
+        }
+      />
 
-      <Flex>
+      <Flex >
         <CountBeadButton
           onClick={countBead}
           icon={<Box as="img" src={beadsImage} alt="Beads" w="20px" h="20px" />}
@@ -51,12 +44,13 @@ function ManualUI(props) {
           text="Resetar"
         />
       </Flex>
-      <Box textAlign="center" my={4}>
+
+      <Flex align="center">
         <ToggleCounterSwitch
           onToggle={() => setShowCounter(!showCounter)}
           text="Esconder contador"
         />
-      </Box>
+      </Flex>
     </Stack>
   );
 }

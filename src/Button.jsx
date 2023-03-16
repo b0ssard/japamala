@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Button } from '@chakra-ui/react';
+import { Button, Flex } from '@chakra-ui/react';
 
 export default function Bead(props) {
   const buttonRef = useRef(null);
@@ -10,17 +10,19 @@ export default function Bead(props) {
   };
 
   return (
-    <Button
-      leftIcon={props.icon}
-      ref={buttonRef}
-      colorScheme="orange"
-      size="sm"
-      textAlign="center"
-      variant="solid"
-      onClick={handleClick}
-      ml={5}
-    >
-      {props.text}
-    </Button>
+    <Flex direction="column" alignItems="center">
+      <Button
+        leftIcon={props.icon}
+        ref={buttonRef}
+        colorScheme="orange"
+        size="sm"
+        textAlign="center"
+        variant="solid"
+        onClick={handleClick}
+        ml={5}
+      >
+        {props.text}
+      </Button>
+    </Flex>
   );
 }

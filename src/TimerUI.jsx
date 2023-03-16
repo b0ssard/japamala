@@ -4,6 +4,7 @@ import BuddhaCard from './Card';
 import CountBeadButton from './Button';
 import beadsImage from './images/beads.png';
 import bowlImage from './images/bowl.png';
+import lotusImage from './images/lotus.png';
 
 function TimerUI(props) {
   const {
@@ -37,8 +38,8 @@ function TimerUI(props) {
           icon={
             <Box
               as="img"
-              src={bowlImage}
-              alt="Tibetan Bowl"
+              src={lotusImage}
+              alt="Lotus"
               w="20px"
               h="20px"
             />
