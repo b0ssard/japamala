@@ -10,9 +10,9 @@ import {
 
 export default function Navbar() {
   const menuItems = [
-    { label: 'Home', href: '#' },
+    { label: 'Instruções', href: '#' },
     { label: 'Sobre', href: '#' },
-    { label: 'Contato', href: '#' },
+    { label: 'CEBB', href: '#' },
   ];
 
   return (
