@@ -73,17 +73,17 @@ function TimerUI(props) {
           lineHeight="tight"
           noOfLines={1}
         >
-          Ritmo: {timerDelay}
+          Ritmo: {timerDelay.toFixed()} segundos
         </Box>
         <Flex justifyContent="space-between">
-          {[0.5, 0.33, 1, 2, 3].map(newSpeed => (
+          {[0.33, 0.5, 1, 2, 3].map(newSpeed => (
             <CountBeadButton
               key={newSpeed}
               onClick={() => handleSpeedChange(newSpeed, 4 / newSpeed)}
               icon={
                 <Box as="img" src={beadsImage} alt="Beads" w="20px" h="20px" />
               }
-              text={'Ritmo: ' + newSpeed}
+              text={`Ritmo: ${(4 / newSpeed).toFixed()} ''`}
             />
           ))}
         </Flex>

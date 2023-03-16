@@ -3,7 +3,6 @@ import { useRef, useEffect, useState } from 'react';
 function useTimer(props) {
   const intervalRef = useRef(null);
   const [mantra, setMantra] = useState(0);
-  const [speed, setSpeed] = useState(1);
   const [timerDelay, setTimerDelay] = useState(4);
 
   useEffect(() => {
@@ -36,7 +35,6 @@ function useTimer(props) {
   };
 
   const handleSpeedChange = (newSpeed, newDelay) => {
-    setSpeed(newSpeed);
     setTimerDelay(newDelay);
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -48,7 +46,7 @@ function useTimer(props) {
 
   return {
     mantra,
-    speed,
+    timerDelay,
     handleStart,
     handlePause,
     handleReset,
