@@ -1,22 +1,56 @@
-import { Box, HStack, StackDivider } from '@chakra-ui/react';
-import React from 'react';
+import {
+  Box,
+  Flex,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+} from '@chakra-ui/react';
 
 export default function Navbar() {
+  const menuItems = [
+    { label: 'Home', href: '#' },
+    { label: 'Sobre', href: '#' },
+    { label: 'Contato', href: '#' },
+  ];
+
   return (
-    <HStack
-      direction={['column', 'row']}
-      spacing="24px"
-      divider={<StackDivider borderColor="gray.200" />}
+    <Flex
+      as="nav"
+      align="center"
+      justify="space-between"
+      wrap="wrap"
+      w="100%"
+      py={4}
+      bg="gray.800"
+      color="white"
     >
-      <Box w="40px" h="40px" bg="yellow.200">
-        1
+      <Box ml={8}>Japamala Virtual</Box>
+      <Box display={{ base: 'none', md: 'flex' }} alignItems="center">
+        {menuItems.map(item => (
+          <Box key={item.label} mr={6}>
+            <a href={item.href}>{item.label}</a>
+          </Box>
+        ))}
       </Box>
-      <Box w="40px" h="40px" bg="tomato">
-        2
+      <Box display={{ base: 'block', md: 'none' }}>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            icon={<i className="fas fa-bars"></i>}
+            variant="ghost"
+            aria-label="Menu"
+          />
+          <MenuList>
+            {menuItems.map(item => (
+              <MenuItem key={item.label}>
+                <a href={item.href}>{item.label}</a>
+              </MenuItem>
+            ))}
+          </MenuList>
+        </Menu>
       </Box>
-      <Box w="40px" h="40px" bg="pink.100">
-        3
-      </Box>
-    </HStack>
+    </Flex>
   );
 }
