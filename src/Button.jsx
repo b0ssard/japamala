@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@chakra-ui/react';
 
-export default function Bead(props) {
+function Bead(props) {
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -39,3 +39,5 @@ export default function Bead(props) {
     </Button>
   );
 }
+
+export default Bead;
