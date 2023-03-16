@@ -1,23 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Button } from '@chakra-ui/react';
 
-function Bead(props) {
+export default function Bead(props) {
   const buttonRef = useRef(null);
-
-  useEffect(() => {
-    const handleKeyDown = event => {
-      if (event.code === 'Enter' || event.code === 'Space') {
-        props.onClick();
-        buttonRef.current.blur();
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  });
 
   const handleClick = () => {
     props.onClick();
@@ -39,5 +24,3 @@ function Bead(props) {
     </Button>
   );
 }
-
-export default Bead;

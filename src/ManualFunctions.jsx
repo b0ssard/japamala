@@ -1,21 +1,32 @@
-export default function useManual(props) {
-  function countBead() {
-    if (props.mantra === 0 || props.mantra === 107) {
-      props.playBowlStruck();
+import { useEffect, useCallback } from 'react';
+
+export default function useManual({ mantra, setMantra, playBowlStruck }) {
+  const countBead = useCallback(() => {
+    if (mantra === 0 || mantra === 107) {
+      playBowlStruck();
     }
-    if (props.mantra < 108) {
-      props.setMantra(props.mantra + 1);
+    if (mantra < 108) {
+      setMantra(mantra + 1);
     }
-  }
+  }, [mantra, setMantra, playBowlStruck]);
 
   function resetMantra() {
-    props.setMantra(0);
-    props.playBowlStruck();
+    setMantra(0);
+    playBowlStruck();
   }
 
-  return {
-    mantra: props.mantra,
-    countBead,
-    resetMantra,
-  };
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.code === 'Enter' || event.code === 'Space') {
+        countBead();
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [countBead]);
+
+  return { mantra, countBead, resetMantra };
 }
