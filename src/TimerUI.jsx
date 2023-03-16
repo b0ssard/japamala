@@ -8,7 +8,7 @@ import bowlImage from './images/bowl.png';
 function TimerUI(props) {
   const {
     mantra,
-    speed,
+    timerDelay,
     handleStart,
     handlePause,
     handleReset,
@@ -73,7 +73,7 @@ function TimerUI(props) {
           lineHeight="tight"
           noOfLines={1}
         >
-          Ritmo: {speed}
+          Ritmo: {timerDelay}
         </Box>
         <Flex justifyContent="space-between">
           {[0.5, 0.33, 1, 2, 3].map(newSpeed => (

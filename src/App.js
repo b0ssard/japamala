@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
-import BeadButton from './Button';
-import OnOff from './OnOff';
-import TimerUI from './TimerUI';
-import ManualUI from './ManualUI';
 import { ChakraProvider, theme } from '@chakra-ui/react';
+import OnOff from './OnOff';
+import ManualUI from './ManualUI';
+import TimerUI from './TimerUI';
 import bowlStruck from './sounds/bowl.mp3';
 
 function App() {
@@ -23,10 +22,7 @@ function App() {
 return (
   <ChakraProvider theme={theme}>
     <OnOff onToggle={() => setPlaySound(!playSound)} text="Não tocar sinos" />
-    <BeadButton
-      onClick={() => setMode(!mode)}
-      text={mode ? 'Ir para modo manual ➜' : 'Ir para modo automático ➜'}
-    />
+    <OnOff onToggle={() => setMode(!mode)} text="Modo manual" />
     {mode ? (
       <TimerUI
         playSound={playSound}
