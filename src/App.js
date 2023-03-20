@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ChakraProvider, theme, Stack } from '@chakra-ui/react';
+import { ChakraProvider, theme} from '@chakra-ui/react';
 import ManualUI from './ManualUI';
 import TimerUI from './TimerUI';
 import Footer from './Footer';
@@ -8,6 +8,8 @@ import Navbar from './Navbar';
 import OnOff from './OnOff';
 import TextBox from './Box';
 import bowlStruck from './sounds/bowl.mp3';
+
+import BuddhaDrawer from './Drawer';
 
 export default function App() {
   const [mode, setMode] = useState(true);
@@ -25,8 +27,8 @@ export default function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      {/* <Stack alignSelf="center"> */}
         <Navbar />
+        <BuddhaDrawer />
         <TextBox
           text={
             <OnOff
@@ -55,7 +57,6 @@ export default function App() {
           />
         )}
         <Footer />
-      {/* </Stack> */}
     </ChakraProvider>
   );
 }

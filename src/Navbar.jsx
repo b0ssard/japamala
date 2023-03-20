@@ -6,7 +6,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Text
+  Text,
 } from '@chakra-ui/react';
 
 export default function Navbar() {
@@ -55,7 +55,7 @@ export default function Navbar() {
           <MenuList>
             {menuItems.map(item => (
               <MenuItem key={item.label}>
-                <a href={item.href} target="_blank" rel="noreferrer">
+                <a href={item.href} target="_blank" rel="noopener noreferrer">
                   {item.label}
                 </a>
               </MenuItem>
