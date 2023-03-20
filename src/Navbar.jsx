@@ -4,18 +4,14 @@ import {
   IconButton,
   Menu,
   MenuButton,
-  MenuItem,
-  MenuList,
+  // MenuItem,
+  // MenuList,
   Text,
 } from '@chakra-ui/react';
+import modalData from './ModalData';
+import OpenModal from './Modal';
 
 export default function Navbar() {
-  const menuItems = [
-    { label: 'Instruções', href: '#' },
-    { label: 'Sobre', href: '#' },
-    { label: 'CEBB', href: 'https://cebb.org.br/' },
-  ];
-
   return (
     <Flex
       as="nav"
@@ -33,14 +29,14 @@ export default function Navbar() {
           Japamala Virtual
         </Text>
       </Box>
-      <Box
-        color="#FC8621"
-        display={{ base: 'none', md: 'flex' }}
-        alignItems="center"
-      >
-        {menuItems.map(item => (
-          <Box key={item.label} mr={6}>
-            <a href={item.href}>{item.label}</a>
+      <Box display={{ base: 'none', md: 'flex' }} alignItems="center">
+        {modalData.map(item => (
+          <Box key={item.key} mr={6}>
+            <OpenModal
+              label={item.label}
+              header={item.header}
+              body={item.body}
+            />
           </Box>
         ))}
       </Box>
@@ -52,15 +48,16 @@ export default function Navbar() {
             variant="ghost"
             aria-label="Menu"
           />
-          <MenuList>
-            {menuItems.map(item => (
-              <MenuItem key={item.label}>
-                <a href={item.href} target="_blank" rel="noopener noreferrer">
-                  {item.label}
-                </a>
-              </MenuItem>
-            ))}
-          </MenuList>
+          {/* <MenuList> */}
+          {modalData.map(item => (
+              <OpenModal
+                key={item.label}
+                label={item.label}
+                header={item.header}
+                body={item.body}
+              />
+          ))}
+          {/* </MenuList> */}
         </Menu>
       </Box>
     </Flex>

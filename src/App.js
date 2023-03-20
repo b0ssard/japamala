@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ChakraProvider, theme} from '@chakra-ui/react';
+import { ChakraProvider, theme } from '@chakra-ui/react';
 import ManualUI from './ManualUI';
 import TimerUI from './TimerUI';
 import Footer from './Footer';
@@ -8,8 +8,6 @@ import Navbar from './Navbar';
 import OnOff from './OnOff';
 import TextBox from './Box';
 import bowlStruck from './sounds/bowl.mp3';
-
-import BuddhaDrawer from './Drawer';
 
 export default function App() {
   const [mode, setMode] = useState(true);
@@ -27,36 +25,35 @@ export default function App() {
 
   return (
     <ChakraProvider theme={theme}>
-        <Navbar />
-        <BuddhaDrawer />
-        <TextBox
-          text={
-            <OnOff
-              onToggle={() => setPlaySound(!playSound)}
-              text="Não tocar sinos"
-            />
-          }
-        />
-        <Bead
-          onClick={() => setMode(!mode)}
-          text={mode ? 'Ir para modo manual' : 'Ir para modo automático'}
-        />
-        {mode ? (
-          <TimerUI
-            playSound={playSound}
-            playBowlStruck={playBowlStruck}
-            mantra={mantra}
-            setMantra={setMantra}
+      <Navbar />
+      <TextBox
+        text={
+          <OnOff
+            onToggle={() => setPlaySound(!playSound)}
+            text="Não tocar sinos"
           />
-        ) : (
-          <ManualUI
-            playSound={playSound}
-            playBowlStruck={playBowlStruck}
-            mantra={mantra}
-            setMantra={setMantra}
-          />
-        )}
-        <Footer />
+        }
+      />
+      <Bead
+        onClick={() => setMode(!mode)}
+        text={mode ? 'Ir para modo manual' : 'Ir para modo automático'}
+      />
+      {mode ? (
+        <TimerUI
+          playSound={playSound}
+          playBowlStruck={playBowlStruck}
+          mantra={mantra}
+          setMantra={setMantra}
+        />
+      ) : (
+        <ManualUI
+          playSound={playSound}
+          playBowlStruck={playBowlStruck}
+          mantra={mantra}
+          setMantra={setMantra}
+        />
+      )}
+      <Footer />
     </ChakraProvider>
   );
 }
