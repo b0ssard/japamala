@@ -35,6 +35,7 @@ export default function App() {
         }
       />
       <Bead
+        fontSize="15px"
         onClick={() => setMode(!mode)}
         text={mode ? 'Ir para modo manual' : 'Ir para modo automático'}
       />

@@ -1,13 +1,4 @@
-import {
-  Box,
-  Flex,
-  IconButton,
-  Menu,
-  MenuButton,
-  // MenuItem,
-  // MenuList,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Flex, Menu, Text } from '@chakra-ui/react';
 import modalData from './ModalData';
 import OpenModal from './Modal';
 
@@ -31,7 +22,7 @@ export default function Navbar() {
       </Box>
       <Box display={{ base: 'none', md: 'flex' }} alignItems="center">
         {modalData.map(item => (
-          <Box key={item.key} mr={6}>
+          <Box key={item.key} >
             <OpenModal
               label={item.label}
               header={item.header}
@@ -42,22 +33,14 @@ export default function Navbar() {
       </Box>
       <Box display={{ base: 'block', md: 'none' }}>
         <Menu>
-          <MenuButton
-            as={IconButton}
-            icon={<i className="fas fa-bars"></i>}
-            variant="ghost"
-            aria-label="Menu"
-          />
-          {/* <MenuList> */}
           {modalData.map(item => (
-              <OpenModal
-                key={item.label}
-                label={item.label}
-                header={item.header}
-                body={item.body}
-              />
+            <OpenModal
+              key={item.label}
+              label={item.label}
+              header={item.header}
+              body={item.body}
+            />
           ))}
-          {/* </MenuList> */}
         </Menu>
       </Box>
     </Flex>

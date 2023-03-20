@@ -22,6 +22,7 @@ export default function Bead(props) {
         variant="solid"
         onClick={handleClick}
         text={props.label}
+        fontSize={props.fontSize}
         mx="3"
       >
         {props.text}
