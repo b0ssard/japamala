@@ -33,14 +33,14 @@ export default function Footer() {
       px="8"
       bg="#990000"
       color="#FFEE63"
-      // position="fixed"
+      mt="10px"
       bottom="0"
       width="100%"
     >
       <Text fontSize="sm" fontWeight="semibold">
         Por Victor Bossard © {new Date().getFullYear()}.
       </Text>
-      <Flex as="ul" listStyleType="none" ml="0" pl="0">
+      <Flex as="ul" listStyleType="none">
         {links.map(link => (
           <Link
             key={link.href}

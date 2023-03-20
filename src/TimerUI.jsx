@@ -1,4 +1,11 @@
-import { Box, Flex, Stack } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Stack,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import useTimer from './TimerFunctions';
 import BuddhaCard from './Card';
 import CountBeadButton from './Button';
@@ -17,10 +24,13 @@ function TimerUI(props) {
     handleSpeedChange,
   } = useTimer(props);
 
+  const buttonSize = useBreakpointValue({ base: '16px', md: '20px' });
+  const textFontSize = useBreakpointValue({ base: 'sm', md: 'md' });
+
   return (
     <Stack spacing={5} align="center">
       <BuddhaCard content={mantra} />
-      <Flex>
+      <Flex flexWrap="wrap" justifyContent="center">
         <CountBeadButton
           onClick={handleStart}
           icon={
@@ -28,15 +38,23 @@ function TimerUI(props) {
               as="img"
               src={bowlImage}
               alt="Tibetan Bowl"
-              w="20px"
-              h="20px"
+              w={buttonSize}
+              h={buttonSize}
             />
           }
           text="Começar"
         />
         <CountBeadButton
           onClick={handlePause}
-          icon={<Box as="img" src={lotusImage} alt="Lotus" w="20px" h="20px" />}
+          icon={
+            <Box
+              as="img"
+              src={lotusImage}
+              alt="Lotus"
+              w={buttonSize}
+              h={buttonSize}
+            />
+          }
           text="Pausar"
         />
         <CountBeadButton
@@ -46,29 +64,41 @@ function TimerUI(props) {
               as="img"
               src={bowlImage}
               alt="Tibetan Bowl"
-              w="20px"
-              h="20px"
-              alignItems="center"
+              w={buttonSize}
+              h={buttonSize}
             />
           }
           text="Resetar"
         />
       </Flex>
       <Stack alignItems="center">
-        <TextBox text={`Ritmo: ${timerDelay.toFixed()} segundos`} />
+        <TextBox
+          text={`Ritmo: ${timerDelay.toFixed()} segundos`}
+          fontSize={textFontSize}
+        />
       </Stack>
-      <Flex justifyContent="space-between">
+      <Grid
+        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(5, 1fr)' }}
+        gap={4}
+      >
         {[0.33, 0.5, 1, 2, 3].map(newSpeed => (
-          <CountBeadButton
-            key={newSpeed}
-            onClick={() => handleSpeedChange(newSpeed, 4 / newSpeed)}
-            icon={
-              <Box as="img" src={beadsImage} alt="Beads" w="20px" h="20px" />
-            }
-            text={`Ritmo: ${(4 / newSpeed).toFixed()} ''`}
-          />
+          <GridItem key={newSpeed} colSpan={1}>
+            <CountBeadButton
+              onClick={() => handleSpeedChange(newSpeed, 4 / newSpeed)}
+              icon={
+                <Box
+                  as="img"
+                  src={beadsImage}
+                  alt="Beads"
+                  w={buttonSize}
+                  h={buttonSize}
+                />
+              }
+              text={`Ritmo: ${(4 / newSpeed).toFixed()} ''`}
+            />
+          </GridItem>
         ))}
-      </Flex>
+      </Grid>
     </Stack>
   );
 }

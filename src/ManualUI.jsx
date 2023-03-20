@@ -3,6 +3,7 @@ import { Box, Flex, Image, Stack, Text } from '@chakra-ui/react';
 import useManual from './ManualFunctions';
 import BuddhaCard from './Card';
 import CountBeadButton from './Button';
+import TextBox from './Box';
 import ToggleCounterSwitch from './OnOff';
 import beadsImage from './images/beads.png';
 import bowlImage from './images/bowl.png';
@@ -24,7 +25,7 @@ function ManualUI(props) {
         }
       />
 
-      <Flex >
+      <Flex alignSelf="center">
         <CountBeadButton
           onClick={countBead}
           icon={<Box as="img" src={beadsImage} alt="Beads" w="20px" h="20px" />}
@@ -46,9 +47,13 @@ function ManualUI(props) {
       </Flex>
 
       <Flex align="center">
-        <ToggleCounterSwitch
-          onToggle={() => setShowCounter(!showCounter)}
-          text="Esconder contador"
+        <TextBox
+          text={
+            <ToggleCounterSwitch
+              onToggle={() => setShowCounter(!showCounter)}
+              text="Esconder contador"
+            />
+          }
         />
       </Flex>
     </Stack>

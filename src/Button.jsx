@@ -21,7 +21,7 @@ export default function Bead(props) {
         textAlign="center"
         variant="solid"
         onClick={handleClick}
-        ml={5}
+       mx="3"
       >
         {props.text}
       </Button>

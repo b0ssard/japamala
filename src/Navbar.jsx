@@ -26,6 +26,7 @@ export default function Navbar() {
       py={4}
       bg="#990000"
       color="white"
+      marginBottom="10px"
     >
       <Box color="#FFEE63" ml={8}>
         <Text fontSize="bg" fontWeight="semibold">

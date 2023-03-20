@@ -1,18 +1,19 @@
 import React, { useState, useRef } from 'react';
-import { ChakraProvider, theme } from '@chakra-ui/react';
+import { ChakraProvider, theme, Stack } from '@chakra-ui/react';
 import ManualUI from './ManualUI';
 import TimerUI from './TimerUI';
 import Footer from './Footer';
 import Bead from './Button';
 import Navbar from './Navbar';
 import OnOff from './OnOff';
+import TextBox from './Box';
 import bowlStruck from './sounds/bowl.mp3';
 
 export default function App() {
   const [mode, setMode] = useState(true);
   const [playSound, setPlaySound] = useState(true);
-  const bowlStruckRef = useRef(new Audio(bowlStruck));
   const [mantra, setMantra] = useState(0);
+  const bowlStruckRef = useRef(new Audio(bowlStruck));
 
   function playBowlStruck() {
     if (playSound) {
@@ -23,29 +24,38 @@ export default function App() {
   }
 
   return (
-    <ChakraProvider theme={theme} >
-      <Navbar />
-      <OnOff onToggle={() => setPlaySound(!playSound)} text="Não tocar sinos" />
-      <Bead
-        onClick={() => setMode(!mode)}
-        text={mode ? 'Ir para modo manual' : 'Ir para modo automático'}
-      />
-      {mode ? (
-        <TimerUI
-          playSound={playSound}
-          playBowlStruck={playBowlStruck}
-          mantra={mantra}
-          setMantra={setMantra}
+    <ChakraProvider theme={theme}>
+      {/* <Stack alignSelf="center"> */}
+        <Navbar />
+        <TextBox
+          text={
+            <OnOff
+              onToggle={() => setPlaySound(!playSound)}
+              text="Não tocar sinos"
+            />
+          }
         />
-      ) : (
-        <ManualUI
-          playSound={playSound}
-          playBowlStruck={playBowlStruck}
-          mantra={mantra}
-          setMantra={setMantra}
+        <Bead
+          onClick={() => setMode(!mode)}
+          text={mode ? 'Ir para modo manual' : 'Ir para modo automático'}
         />
-      )}
-      <Footer />
+        {mode ? (
+          <TimerUI
+            playSound={playSound}
+            playBowlStruck={playBowlStruck}
+            mantra={mantra}
+            setMantra={setMantra}
+          />
+        ) : (
+          <ManualUI
+            playSound={playSound}
+            playBowlStruck={playBowlStruck}
+            mantra={mantra}
+            setMantra={setMantra}
+          />
+        )}
+        <Footer />
+      {/* </Stack> */}
     </ChakraProvider>
   );
 }
