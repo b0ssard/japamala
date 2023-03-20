@@ -18,9 +18,11 @@ export default function OpenModal(props) {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{props.header}</ModalHeader>
+          <ModalHeader bg="#990000" color="#FFEE63">
+            {props.header}
+          </ModalHeader>
           <ModalCloseButton />
-          <ModalBody>{props.body}</ModalBody>
+          <ModalBody bg="#FBE6C2">{props.body}</ModalBody>
         </ModalContent>
       </Modal>
     </>

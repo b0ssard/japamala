@@ -14,7 +14,6 @@ export default function TextBox(props) {
         fontWeight="semibold"
         as="h4"
         lineHeight="tight"
-        noOfLines={1}
         marginBottom="10px"
         paddingLeft="15px"
         paddingRight="15px"
