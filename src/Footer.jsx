@@ -1,29 +1,7 @@
-import { Box, Flex, Link, Text } from '@chakra-ui/react';
-import linkedinImage from './images/linkedin.png';
-import githubImage from './images/github.png';
-import emailImage from './images/email.png';
-import whatsappImage from './images/whatsapp.png';
+import { Flex, Link, Text } from '@chakra-ui/react';
+import links from './FooterData';
 
 export default function Footer() {
-  const links = [
-    {
-      label: <Box as="img" src={linkedinImage} alt="LinkedIn" />,
-      href: 'https://www.linkedin.com/in/victorbossard/',
-    },
-    {
-      label: <Box as="img" src={githubImage} alt="GitHub" />,
-      href: 'https://github.com/b0ssard',
-    },
-    {
-      label: <Box as="img" src={emailImage} alt="EMail" />,
-      href: 'mailto:victorquindere@gmail.com',
-    },
-    {
-      label: <Box as="img" src={whatsappImage} alt="WhatsApp" />,
-      href: 'https://wa.me/5585988812838',
-    },
-  ];
-
   return (
     <Flex
       as="footer"

@@ -25,7 +25,7 @@ function ManualUI(props) {
         }
       />
 
-      <Flex alignSelf="center">
+      <Flex>
         <CountBeadButton
           onClick={countBead}
           icon={<Box as="img" src={beadsImage} alt="Beads" w="20px" h="20px" />}
@@ -46,7 +46,7 @@ function ManualUI(props) {
         />
       </Flex>
 
-      <Flex align="center">
+      <Flex>
         <TextBox
           text={
             <ToggleCounterSwitch
