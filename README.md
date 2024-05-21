@@ -11,27 +11,6 @@ A proposta desse projeto é criar uma japamala (rosário budista) para orientar 
 - **Sino Tibetano**: Toque simbólico no início e fim da prática.
 - **Exibição de Contador**: O contador mostra a posição atual na prática, podendo ser desabilitado se o meditante preferir não se focar nele.
 
-## Roadmap
+## Tecnologias Utilizadas
 
-- **Inicialização**:
-  - Criar botão para clicar a cada recitação, aumentando o contador, e utilizar as teclas "space" e "enter".
-  - Criar contador exibível e opcional.
-  - Limitar contagem a 108 recitações.
-- **Modo Automático**:
-  - Implementar timer para cada recitação.
-  - Ajustar timer com padrão de 4 segundos.
-  - Adicionar funções de pause e stop.
-  - Criar botões para ajuste de tempo: x2(>>), x3(>>>), /2(<<) e /3(<<<).
-  - Substituir botão de bead por botões de stop, pause, x2 e x3.
-- **Integração**:
-  - Integrar modos automático e manual.
-  - Permitir alternância entre os dois modos.
-- **Sons**:
-  - Criar sons de início, clique e fim.
-  - Adicionar opção para desabilitar sons.
-- **Interface**:
-  - Adicionar opção para não exibir o contador.
-
-## Manual de Instruções
-
-- Detalhamento sobre como utilizar todas as funcionalidades e configurações do projeto.
+O projeto foi construído com React.js e Chakra UI utilizando componentes reutilizáveis e modo responsivo. O estilo simples e suas cores sãp inspirados na cultura tibetana.
